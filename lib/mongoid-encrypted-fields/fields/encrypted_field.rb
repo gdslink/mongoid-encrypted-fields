@@ -68,7 +68,7 @@ module Mongoid
 
       def decrypt(encrypted)
         unmarked = encrypted.slice(MARKER.size..-1)
-        EncryptedFields.cipher.decrypt(unmarked) rescue nil
+        EncryptedFields.cipher.decrypt(unmarked) rescue ""
       end
 
       def is_encrypted?(object)
