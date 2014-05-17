@@ -22,7 +22,7 @@ module Mongoid
     class << self
 
       def convert(object)
-        new(object)
+        new(object.to_s)
       end
 
     end
