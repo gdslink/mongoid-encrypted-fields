@@ -7,7 +7,9 @@ if RUBY_VERSION < '2.0'
 else
     gem 'rake'
 end
-gem 'mongoid', github: 'mongoid/mongoid'
+gem 'mongoid', '>= 6.0.0.rc0', '< 7'
+gem 'actionpack',  '< 6'
+gem 'activemodel', '< 6'
 
 group :test do
   gem 'encrypted_strings', '~> 0.3'

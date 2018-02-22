@@ -1,13 +1,22 @@
 source 'https://rubygems.org'
 gemspec path: '..'
 
-gem 'rake'
+if RUBY_VERSION < '2.0'
+    gem 'rake', '< 11'
+    gem 'json', '< 2'
+else
+    gem 'rake'
+end
 gem 'mongoid', '~> 3'
 
 group :test do
-  gem 'coveralls', require: false
   gem 'encrypted_strings', '~> 0.3'
-  gem 'gibberish', '~> 1.2.2'
-  gem 'rspec', '~> 2.13'
+  if RUBY_VERSION < '2.0'
+    gem 'gibberish', '< 2'
+    gem 'rspec', '< 3'
+  else
+    gem 'gibberish'
+    gem 'rspec'
+  end
   gem 'simplecov', require: false
 end

@@ -12,13 +12,8 @@ module Mongoid
       # Older versions of Mongoid's UniquenessValidator have a klass variable to reference the validating document
       # This was later replaced in ActiveModel with options[:class]
       def initialize(options={})
+        @klass = options[:class] if options.key?(:class)
         super
-        @klass = options[:class]
-      end
-
-      def setup(klass)
-        @klass = klass
-        check_validity!
       end
 
       def check_validity!
@@ -26,7 +21,7 @@ module Mongoid
         return unless klass
         attributes.each do |attribute|
           field_type = klass.fields[klass.database_field_name(attribute)].options[:type]
-          raise ArgumentError, "Encrypted field :#{attribute} cannot support case insensitive uniqueness" if field_type.method_defined?(:encrypted)
+          raise ArgumentError, "Encrypted field :#{attribute} cannot support case insensitive uniqueness" if field_type && field_type.method_defined?(:encrypted)
         end
       end
 

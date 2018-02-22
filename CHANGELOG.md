@@ -1,5 +1,26 @@
 # Revision history
 
+## 1.3.6
+* Changes to keep backwards support for Ruby < 2
+* \#28 Investigating gem load error
+
+## 1.3.5
+* \#25 Mongoid 6 support
+
+## 1.3.4
+* \#21 Adding support for changes in Mongoid 5
+* \#22 Check for nil field_type
+
+## 1.3.3
+* \#19 Remove deprecated Validator#setup method
+
+## 1.3.2
+* \#17 Updates due to changes in ActiveModel 4.2
+* Added gemfiles to specifically test Mongoid 4, Mongoid 4 with Rails 4.1, and Mongoid 4 with Rails 4.2
+
+## 1.3.1
+* \#14 Updates due to changes in Mongoid 4 and ActiveModel 4
+
 ## 1.3.0 - Breaking change - PLEASE READ
 * \#11 Support for Mongoid 4
 * \#12 EncryptedHash will now stringify the keys before storing to be consistent with Mongoid's behavior
